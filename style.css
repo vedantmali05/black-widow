@@ -1,0 +1,947 @@
+:root {
+    --reda: #ff0000;
+    --redb: #af0404;
+    --black: #252525;
+    --white: #fbfbfb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    outline: none;
+    border: none;
+    transition: all 0.2s linear;
+    font-family: 'Exo 2', sans-serif;
+    list-style: none;
+    color: var(--black);
+}
+
+*::selection {
+    background: var(--reda);
+    color: var(--white);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding: 2rem;
+}
+
+body {
+    overflow-x: hidden;
+    background: var(--white);
+}
+
+button {
+    cursor: pointer;
+}
+
+.overview h1,
+.crew h1,
+.videos h1,
+.gallery h1 {
+    font-size: 3rem;
+    text-align: center;
+    border-bottom: 3px solid var(--reda);
+    padding-bottom: 10px;
+    margin: 2rem 0;
+    width: 100%;
+}
+
+
+/* ********************************* Header ******************************************** */
+
+header {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    z-index: 1000;
+    left: -21rem;
+}
+
+.menu-icon {
+    position: fixed;
+    left: 2rem;
+    top: 1rem;
+    background: var(--redb);
+    border-radius: 50%;
+    height: 44px;
+    width: 46px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    gap: 1rem;
+    z-index: 1001;
+}
+
+.menu-icon i {
+    font-size: 24px;
+    position: relative;
+    top: 9px;
+    left: 12px;
+    color: var(--white);
+}
+
+header ul {
+    background: var(--redb);
+    height: 100vh;
+    padding: 4rem 1rem 1rem 1rem;
+    border-radius: 5px;
+}
+
+header ul li a {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 27px;
+    padding: 1rem 2rem;
+    display: block;
+    border-radius: 5px;
+}
+
+header ul li a:hover {
+    background: var(--reda);
+}
+
+.header.activeMenu {
+    left: 0;
+}
+
+.menu-icon.activeMenu i {
+    left: -25px;
+}
+
+
+/* ***************************************** HOME *********************************** */
+
+.home {
+    height: 100vh;
+    background: var(--redb) url(media/home-bg.jpeg) no-repeat;
+    background-size: cover;
+}
+
+.home .home-box {
+    height: 100vh;
+    background: #af04048e;
+}
+
+.home-box .content {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transform: translateY(4rem);
+}
+
+.home-box .content h3 {
+    font-size: 3rem;
+    color: var(--white);
+}
+
+.home-box .content h1 {
+    font-size: 4rem;
+    color: var(--white);
+    text-shadow: 0 0 24px var(--white);
+}
+
+.home-box .content h2 {
+    font-size: 2rem;
+    color: var(--white);
+    margin: 1rem;
+}
+
+.home-box .content h2 span {
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.home-box .content h2 span::before {
+    content: "3D";
+    text-shadow: 0 0 1px var(--white);
+    animation: watchIn 5s linear infinite;
+}
+
+@keyframes watchIn {
+    0% {
+        content: "3D";
+    }
+    50% {
+        content: "Imax";
+    }
+    75% {
+        content: "Bluray";
+    }
+}
+
+.home-box .content .buttons {
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.home-box .content .buttons button {
+    font-size: 27px;
+    padding: 7px 14px;
+    border-radius: 5px;
+    background: var(--black);
+    color: var(--white);
+}
+
+.home-box .content .buttons button a {
+    color: var(--white);
+}
+
+.home-box .content .buttons button:hover {
+    background: var(--reda);
+}
+
+.home-box .content p {
+    font-size: 25px;
+    margin-top: 1rem;
+}
+
+.home-box .content p span {
+    font-size: 25px;
+    margin-top: 1rem;
+    color: var(--white);
+}
+
+.home-box .content p span::before {
+    content: "English";
+    animation: language 8s linear infinite;
+}
+
+@keyframes language {
+    14.3% {
+        content: "English";
+    }
+    28.6% {
+        content: "Hindi";
+    }
+    42.9% {
+        content: "Tamil";
+    }
+    57.2% {
+        content: "Telugu";
+    }
+    71.5% {
+        content: "Malayalam";
+    }
+    85.8% {
+        content: "Kanada";
+    }
+}
+
+.home-box .content label {
+    color: var(--white);
+    margin: 2rem;
+}
+
+.home-box .logo {
+    float: right;
+    position: relative;
+    top: 10rem;
+    width: fit-content;
+}
+
+.home-box img {
+    width: 50rem;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+/* ************************************ BOOKING CARD ************************************ */
+
+.ticketPage {
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    background: var(--white);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 5px;
+    padding: 2rem;
+    box-shadow: 1px 0px 0px var(--redb);
+    display: none;
+    flex-direction: column;
+    border: 1px solid var(--reda);
+    border-left: 5px solid var(--redb);
+}
+
+.ticketPage.activeTicket {
+    display: flex;
+}
+
+.ticketPage p {
+    color: var(--reda);
+    font-size: 40px;
+    text-align: right;
+    line-height: 18px;
+    cursor: pointer;
+}
+
+.ticketPage h1 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.ticketPage h1 span {
+    font-size: 2rem;
+    color: var(--reda);
+}
+
+.ticketPage a {
+    display: block;
+    margin: 10px 0;
+    color: var(--redb);
+    font-size: 33px;
+    padding: 0 4px;
+    border-bottom: 1px solid var(--reda);
+}
+
+.ticketPage a:hover {
+    transform: scale(1.1);
+}
+
+.ticketPage h2 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.ticketPage .disney {
+    color: #1b3a85;
+    border-bottom: 1px solid #1b3a85;
+}
+
+
+/* ************************************ OVERVIEW **************************************** */
+
+.movie {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.movie .content {
+    width: 60%;
+    min-width: 28rem;
+}
+
+.movie .content h2 {
+    border-left: 5px solid var(--redb);
+    font-size: 2.5rem;
+    padding: 0 2rem;
+}
+
+.movie .content p {
+    border-left: 5px solid var(--redb);
+    font-size: 1.5rem;
+    padding: 0 2rem;
+    margin: 1rem 0;
+    text-transform: none;
+}
+
+.movie .content p a {
+    text-decoration: underline;
+}
+
+.movie .content p a:hover {
+    color: var(--reda);
+}
+
+.movie .image img {
+    width: 17rem;
+}
+
+
+/* ************************************* CHARACTER ********************************** */
+
+.character h2 {
+    border-left: 5px solid var(--redb);
+    font-size: 2.5rem;
+    padding: 0 2rem;
+    margin: 1rem 7rem;
+}
+
+.character .image {
+    display: flex;
+    gap: 1rem;
+    margin: 0rem;
+    padding: 0 1rem;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.character .image a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.character .image img {
+    width: 20rem;
+    max-width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 20px;
+}
+
+.character .image h5 {
+    color: var(--white);
+    float: right;
+    background: var(--redb);
+    font-size: 28px;
+    padding: 12px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 5px;
+}
+
+.character .image a:nth-child(1) h5 span::before {
+    content: "Read the Artical";
+    animation: characterA 5s linear infinite;
+}
+
+@keyframes characterA {
+    0% {
+        content: "Read the artical";
+    }
+    50% {
+        content: "Scarlett Johansson";
+    }
+}
+
+.character .image a:nth-child(2) h5 span::before {
+    content: "Read the Artical";
+    animation: characterB 5s linear infinite;
+}
+
+@keyframes characterB {
+    0% {
+        content: "Read the artical";
+    }
+    50% {
+        content: "Black Widow";
+    }
+}
+
+.character .image a:hover {
+    transform: scale(1.05);
+}
+
+
+/* *************************************** Director ************************************ */
+
+.director {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.director .content {
+    width: 60%;
+    min-width: 28rem;
+}
+
+.director .content h2 {
+    font-size: 2.5rem;
+    padding: 0 2rem;
+}
+
+.director .content p {
+    font-size: 1.5rem;
+    padding: 0 2rem;
+    margin: 1rem 0;
+    text-transform: none;
+}
+
+.director .image img {
+    width: 17rem;
+    border-left: 5px solid var(--redb);
+}
+
+
+/* ********************************** CREW ******************************************* */
+
+.crew {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.crew .table h4 {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 20px;
+    color: var(--redb);
+}
+
+.crew .table {
+    margin: 0 10px;
+    width: 70%;
+    border: 1px solid var(--redb);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.crew .table table {
+    border-collapse: collapse;
+}
+
+.crew .table table tr {
+    text-align: center;
+}
+
+.crew .table table tr td {
+    border-top: 1px solid var(--redb);
+    border-bottom: 1px solid var(--redb);
+    padding: 5px;
+    width: 50%;
+    font-size: 17px;
+}
+
+.crew .table table tr td:nth-child(1) {
+    border-right: 1px solid var(--redb);
+}
+
+
+/* ************************************ CASTS **************************************** */
+
+.cast-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cast {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.cast .content {
+    width: 60%;
+    min-width: 28rem;
+}
+
+.cast .content h2 {
+    font-size: 2.5rem;
+    padding: 0 2rem;
+}
+
+.cast .content h3 {
+    font-size: 2rem;
+    padding: 0 2rem;
+    color: var(--reda);
+}
+
+.cast .content p {
+    font-size: 1rem;
+    padding: 0 2rem;
+    margin: 1rem 0;
+    text-transform: none;
+}
+
+.cast .content button {
+    margin: 0 2rem;
+    font-size: 27px;
+    padding: 7px 14px;
+    border-radius: 5px;
+    background: var(--black);
+    color: var(--white);
+}
+
+.cast .content button:hover {
+    background: var(--reda);
+}
+
+.cast .image img {
+    width: 16rem;
+    height: auto;
+    border-left: 5px solid var(--redb);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 5px;
+}
+
+
+/* *************************************** VIDEOS ********************************** */
+
+.video-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    grid-gap: 2rem;
+    padding: 2rem;
+}
+
+.video-box .video {
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid var(--black);
+}
+
+.video-box .video iframe {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.video-box .video h3 {
+    padding: 10px 20px;
+}
+
+.video-box .video:hover h3 {
+    color: var(--redb);
+}
+
+.videos .more {
+    text-align: center;
+    padding: 1rem;
+}
+
+.videos .more a button {
+    margin: 0 2rem;
+    border-radius: 5px;
+    background: var(--black);
+    color: var(--white);
+    font-size: 27px;
+    padding: 1rem 2rem;
+}
+
+.videos .more a:hover button {
+    background: var(--reda);
+}
+
+
+/* *************************************** GALLERY **************************************** */
+
+.gallery .image-box {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 1rem;
+    justify-content: center;
+    margin: 10px 1rem;
+}
+
+.gallery .image-box img {
+    width: 23rem;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.gallery .image-box img:hover {
+    transform: scale(1.05);
+}
+
+
+/* *************************************** FOOTER ***************************************** */
+
+.footerC h1,
+.footerD .address h1 {
+    color: var(--white);
+    padding: 10px;
+    font-size: 30px;
+}
+
+footer {
+    background: var(--redb);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    justify-content: center;
+    margin: 5rem 0 0 0;
+}
+
+.footerA img {
+    width: 10rem;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.footerB ul {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.footerB ul li a {
+    color: var(--white);
+    font-size: 22px;
+}
+
+.footerC ul {
+    padding: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.footerC ul li a i {
+    color: var(--white);
+    font-size: 25px;
+}
+
+.footerC ul li a i:hover {
+    transform: scale(1.2);
+}
+
+.footerD {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footerD .contact h1 {
+    color: var(--white);
+    padding: 0 10px;
+    font-size: 25px;
+}
+
+.footerD .contact a {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+.footerD .address h1 {
+    padding: 0 10px;
+}
+
+.footerD .address address {
+    width: 17rem;
+    padding: 10px;
+    color: var(--white);
+}
+
+.footerE {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 2px solid var(--white);
+    padding-top: 1rem;
+}
+
+.footerE h1 {
+    text-align: center;
+    color: var(--white);
+    font-weight: 300;
+}
+
+.footerE h1 i {
+    color: var(--white);
+    animation: love 2s linear infinite;
+}
+
+@keyframes love {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.footerE h1 span {
+    color: var(--white);
+    text-shadow: 2px 2px 12px;
+    font-weight: 500;
+    padding: 20px 0;
+}
+
+.footerE p {
+    padding: 1rem;
+    text-align: center;
+    font-size: 22px;
+    text-transform: none;
+}
+
+.footerE p a {
+    text-decoration: underline;
+}
+
+.footerE p a:hover {
+    color: var(--reda);
+}
+
+
+/* ************************************** MEDIA QUERIES ******************************* */
+
+@media (max-width: 768px) {
+    .overview h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+    .movie .content {
+        width: 100%;
+        min-width: 1rem;
+    }
+    .movie .content p {
+        font-size: 1rem;
+        padding: 1rem;
+        margin: 0;
+    }
+    .movie .image img {
+        width: 17rem;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .character h2 {
+        padding: 1rem;
+        margin: 1rem;
+    }
+    .character .image {
+        border-left: 5px solid var(--redb);
+    }
+    .character .image h5 {
+        font-size: 15px;
+    }
+    .director {
+        flex-direction: column-reverse;
+    }
+    .director .content {
+        width: 100%;
+        min-width: 1rem;
+        border-left: 5px solid var(--redb);
+    }
+    .director .content h2 {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+    .director .content p {
+        font-size: 1rem;
+        padding: 1rem;
+        margin: 0;
+    }
+    .director .image {
+        width: 100%;
+        text-align: center;
+    }
+    .director .image img {
+        width: 17rem;
+        max-width: 100%;
+        max-height: 100%;
+        border-left: none;
+    }
+    .cast .content {
+        width: 100%;
+        min-width: 1rem;
+        text-align: center;
+    }
+    .cast .content h2 {
+        font-size: 2rem;
+        padding: 0;
+    }
+    .cast .content h3 {
+        font-size: 1.5rem;
+        padding: 0;
+    }
+    .cast .content p {
+        display: none;
+    }
+    .cast .content button {
+        font-size: 20px;
+    }
+    .cast .image img {
+        max-height: 100%;
+        max-width: 100%;
+    }
+    .footerA,
+    .footerB,
+    .footerC,
+    .footerD {
+        width: 100%;
+    }
+    .footerB,
+    .footerC,
+    .footerD {
+        border-bottom: 1px solid var(--white);
+    }
+    .footerC h1,
+    .footerD .address h1,
+    footer,
+    .footerB ul,
+    .footerB ul li a,
+    .footerC ul,
+    .footerC ul li a i,
+    .footerD,
+    .footerD .contact h1,
+    .footerD .contact a,
+    .footerD .address h1,
+    .footerD .address address,
+    .footerE,
+    .footerE h1,
+    .footerE h1 i,
+    .footerE h1 span,
+    .footerE p {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .crew .table {
+        width: 90%;
+    }
+}
+
+@media (max-width: 375px) {
+    .home-box .content h3 {
+        font-size: 2rem;
+    }
+    .home-box .content h1 {
+        font-size: 3rem;
+    }
+    .home-box .content h2,
+    .home-box .content h2 span {
+        font-size: 1.5rem;
+    }
+    .home-box .content .buttons button {
+        font-size: 19px;
+    }
+    .movie .content h2,
+    .character h2 {
+        font-size: 1.5rem;
+    }
+    .character .image h5 {
+        padding: 5px;
+    }
+    .video-box {
+        grid-gap: 1rem;
+        padding: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    }
+    footer {
+        justify-content: center;
+    }
+}
