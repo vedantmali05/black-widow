@@ -117,7 +117,7 @@ header ul li a:hover {
 
 .home {
     height: 100vh;
-    background: var(--redb) url(media/home-bg.jpeg) no-repeat;
+    background: var(--redb) url(./assets/home-bg.jpeg) no-repeat;
     background-size: cover;
 }
 
